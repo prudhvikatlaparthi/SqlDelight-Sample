@@ -1,0 +1,25 @@
+CREATE TABLE CRM_CustomerVehicles(
+CustomerVehicleID                     TEXT                 NOT NULL,
+ID                    INTEGER        NOT NULL,
+AccountID                             TEXT                 NOT NULL,
+WebCustomerVehicleID                  INTEGER                      DEFAULT 0,
+VehicleNo                              TEXT NOT NULL,
+VehicleOwnerTypeCode                     TEXT NOT NULL,
+Company                                 TEXT ,
+Active                                 TEXT COLLATE NOCASE       DEFAULT 'Y',
+ModifiedFrom                            TEXT                  NOT NULL DEFAULT 'A',
+CreatedBy                             TEXT              NOT NULL,
+CreatedDate                           TEXT                     NOT NULL,
+ModifiedBy                            TEXT               NOT NULL,
+ModifiedDate                          TEXT                     NOT NULL,
+OrgID                                 INTEGER                      NOT NULL,
+VehicleTypeCode                       TEXT NOT NULL,
+PRIMARY KEY (CustomerVehicleID),
+FOREIGN KEY (VehicleOwnerTypeCode) REFERENCES ADM_VehicleOwnerTypes (VehicleOwnerTypeCode),
+FOREIGN KEY (VehicleTypeCode) REFERENCES ADM_VehicleTypes (VehicleTypeCode)
+);
+
+INSERT OR REPLACE INTO CRM_CustomerVehicles VALUES (11,3,"44",22,"1232","33","3dcx","Y","A","pk","444","pk","er",33,"223");
+
+insertCrmCustomerVehicles:
+INSERT OR REPLACE INTO CRM_CustomerVehicles VALUES ?;

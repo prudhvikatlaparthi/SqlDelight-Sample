@@ -1,0 +1,16 @@
+CREATE TABLE QR_Codes (
+  QRNo     	 TEXT         NOT NULL COLLATE NOCASE,
+  QRImage      BLOB,
+  QRImageName      TEXT        NOT NULL COLLATE NOCASE,
+  ModifiedBy    TEXT       NOT NULL COLLATE NOCASE,
+  ModifiedDate  TEXT           NOT NULL,
+  OrgID         INTEGER             NOT NULL,
+  PRIMARY KEY (QRNo)
+);
+
+insertQRCODE:
+INSERT OR REPLACE INTO QR_Codes
+VALUES ?;
+
+selectALLQRCodes:
+SELECT * FROM QR_Codes;

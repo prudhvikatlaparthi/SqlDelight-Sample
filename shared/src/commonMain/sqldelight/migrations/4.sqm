@@ -1,0 +1,45 @@
+CREATE TABLE ADM_VehicleOwnerTypes(
+    VehicleOwnerTypeCode TEXT NOT NULL,
+    VehicleOwnerType TEXT NOT NULL,
+    CreatedBy TEXT NOT NULL COLLATE NOCASE,
+    CreatedDate TEXT NOT NULL,
+    ModifiedBy TEXT NOT NULL COLLATE NOCASE,
+    ModifiedDate TEXT NOT NULL,
+    OrgID INTEGER NOT NULL,
+    PRIMARY KEY (VehicleOwnerTypeCode)
+);
+
+CREATE TABLE ADM_VehicleTypes(
+    VehicleTypeCode TEXT NOT NULL,
+    VehicleType TEXT NOT NULL,
+    FuelCapacity REAL DEFAULT (0),
+    Active TEXT NOT NULL DEFAULT ('N'),
+    CreatedBy TEXT NOT NULL,
+    CreatedDate TEXT NOT NULL,
+    ModifiedBy TEXT NOT NULL,
+    ModifiedDate TEXT NOT NULL,
+    OrgID INTEGER NOT NULL,
+    DailyFuelConsumptionLimit REAL DEFAULT (0),
+	PRIMARY KEY (VehicleTypeCode)
+);
+
+CREATE TABLE CRM_CustomerVehicles(
+CustomerVehicleID                     TEXT                 NOT NULL,
+ID                    INTEGER        NOT NULL,
+AccountID                             TEXT                 NOT NULL,
+WebCustomerVehicleID                  INTEGER                      DEFAULT 0,
+VehicleNo                              TEXT NOT NULL,
+VehicleOwnerTypeCode                     TEXT NOT NULL,
+Company                                 TEXT ,
+Active                                 TEXT COLLATE NOCASE       DEFAULT 'Y',
+ModifiedFrom                            TEXT                  NOT NULL DEFAULT 'A',
+CreatedBy                             TEXT              NOT NULL,
+CreatedDate                           TEXT                     NOT NULL,
+ModifiedBy                            TEXT               NOT NULL,
+ModifiedDate                          TEXT                     NOT NULL,
+OrgID                                 INTEGER                      NOT NULL,
+VehicleTypeCode                       TEXT NOT NULL,
+PRIMARY KEY (CustomerVehicleID),
+FOREIGN KEY (VehicleOwnerTypeCode) REFERENCES ADM_VehicleOwnerTypes (VehicleOwnerTypeCode),
+FOREIGN KEY (VehicleTypeCode) REFERENCES ADM_VehicleTypes (VehicleTypeCode)
+);

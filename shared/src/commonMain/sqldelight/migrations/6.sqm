@@ -1,0 +1,7 @@
+DROP VIEW IF EXISTS VU_CRM_CustomerVehicles;
+
+CREATE VIEW VU_CRM_CustomerVehicles AS
+
+SELECT CRM_CustomerVehicles.*,ADM_VehicleTypes.*,ADM_VehicleOwnerTypes.* FROM CRM_CustomerVehicles LEFT OUTER JOIN ADM_VehicleOwnerTypes ON
+CRM_CustomerVehicles.VehicleOwnerTypeCode == ADM_VehicleOwnerTypes.VehicleOwnerTypeCode
+LEFT OUTER  JOIN ADM_VehicleTypes ON CRM_CustomerVehicles.VehicleTypeCode == ADM_VehicleTypes.VehicleTypeCode;

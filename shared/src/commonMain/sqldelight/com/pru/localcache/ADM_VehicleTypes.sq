@@ -1,0 +1,17 @@
+CREATE TABLE ADM_VehicleTypes(
+    VehicleTypeCode TEXT NOT NULL,
+    VehicleType TEXT NOT NULL,
+    FuelCapacity REAL DEFAULT (0),
+    Active TEXT NOT NULL DEFAULT ('N'),
+    CreatedBy TEXT NOT NULL,
+    CreatedDate TEXT NOT NULL,
+    ModifiedBy TEXT NOT NULL,
+    ModifiedDate TEXT NOT NULL,
+    OrgID INTEGER NOT NULL,
+    DailyFuelConsumptionLimit REAL DEFAULT (0),
+	PRIMARY KEY (VehicleTypeCode)
+);
+
+
+INSERT OR REPLACE INTO ADM_VehicleTypes VALUES ("11","121",3,"Y","2010-06-01T22:19:44.475Z","pk","2010-06-01T22:19:44.475Z","pk"
+,1011,33.5);

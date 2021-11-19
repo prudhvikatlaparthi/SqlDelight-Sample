@@ -1,0 +1,18 @@
+CREATE TABLE TBL_TODOS (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    description TEXT,
+    status Text,
+    testColumn Text
+);
+
+insertTodo:
+INSERT OR REPLACE INTO TBL_TODOS
+VALUES(?,?,?,?,?);
+
+getTodos:
+SELECT * FROM TBL_TODOS;
+
+getTodo:
+SELECT * FROM TBL_TODOS
+WHERE id=?;

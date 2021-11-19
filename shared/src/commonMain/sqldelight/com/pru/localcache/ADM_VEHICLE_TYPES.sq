@@ -1,0 +1,10 @@
+CREATE TABLE ADM_VehicleOwnerTypes(
+    VehicleOwnerTypeCode TEXT NOT NULL,
+    VehicleOwnerType TEXT NOT NULL,
+    CreatedBy TEXT NOT NULL COLLATE NOCASE,
+    CreatedDate TEXT NOT NULL,
+    ModifiedBy TEXT NOT NULL COLLATE NOCASE,
+    ModifiedDate TEXT NOT NULL,
+    OrgID INTEGER NOT NULL,
+    PRIMARY KEY (VehicleOwnerTypeCode)
+);
